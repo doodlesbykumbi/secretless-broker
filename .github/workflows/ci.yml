@@ -1,0 +1,21 @@
+name: CI
+
+on: [push]
+
+jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          submodules: recursive
+#      - run: ./bin/build
+
+  osx_test:
+    name: Run tests on macOS
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - run: cd test/providers/keychain && ./start && ./test
